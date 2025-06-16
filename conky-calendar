@@ -1,0 +1,77 @@
+conky.config = {
+
+-- -----------------------------------------
+--             Windows Settings           --
+-- -----------------------------------------
+	own_window = true,
+	own_window_type = 'normal',
+	own_window_class = 'conky-calendar',
+	own_window_transparent = false,
+	own_window_hints = 'undecorated,sticky,below,skip_taskbar,skip_pager',
+	own_window_argb_visual = true,
+	own_window_argb_value = 255,
+	own_window_colour = '2e2e2e',
+
+	double_buffer = true,
+	--_buffers = true,
+	background = true,
+	format_human_readable = true,
+
+-- -----------------------------------------
+--             Possition & Size           --
+-- -----------------------------------------
+	alignment = 'bottom_left',
+
+	minimum_width = 272, 
+	maximum_width = 272,
+	minimum_height = 265,
+	--maximum_height = 180,
+    	gap_x = 11,
+	gap_y = -275,
+
+-- -----------------------------------------
+--                  Font                  --
+-- -----------------------------------------
+	use_xft = true,
+	xftalpha = 0,
+	override_utf8_locale = true,
+	text_buffer_size = 2048,
+
+-- -----------------------------------------
+--             Border & Margin            --
+-- -----------------------------------------
+	draw_borders = false,
+	draw_outline = false,
+	draw_shades = false,
+	draw_graph_borders = false,
+	border_inner_margin = 0,
+	border_outer_margin = 10,
+
+-- -----------------------------------------
+--                 Colors                 --
+-- -----------------------------------------
+	default_color = 'DCDCDC',
+	color0 = '19ae38',
+	color1 = 'DDDDDD',
+	color2 = 'AAAAAA',
+	color3 = '888888',
+	color4 = '2679a5',
+	color5 = '222222',
+
+-- -----------------------------------------
+--                Interval                --
+-- -----------------------------------------
+	update_interval = 1,
+    
+};
+
+conky.text = [[
+${image ~/.config/conky/popup_conky-calendar/images/vline-darkgray.png -p 0,0 -s 1x185}
+${image ~/.config/conky/popup_conky-calendar/images/vline-darkgray.png -p 271,0 -s 1x265}
+
+${GOTO 90}${voffset -52}${font FiraCode Nerd:size=14}${time %I:%M %p}${font}
+${image ~/.config/conky/popup_conky-calendar/images/H-Line-green.png -p 20,38 -s 225x1}
+${voffset 5}${color1}${font NotoMono Nerd Font:size=14}${execpi 3600 ~/.config/conky/popup_conky-calendar/cal.lua}
+
+${image ~/.config/conky/popup_conky-calendar/images/H-Line-darkgray.png -p -10,252 -s 300x1}
+]];
